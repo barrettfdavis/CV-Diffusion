@@ -1,7 +1,7 @@
 """
 Barrett Davis
-BME 306 Module 1
-Diffusion CV
+CV-Diffusion
+2018-08-31
 """
 #Import Libraries
 import matplotlib.pyplot as plt
@@ -31,7 +31,7 @@ def segmentCV(img,K):
     return(res2)
 
 #Image Pre-Processing
-for filename in sorted(glob.glob('YOUR FOLDER HERE')):
+for filename in sorted(glob.glob('inputs/*')):
 
     print('Processing',filename[9:],'...')
 
@@ -58,9 +58,9 @@ cwd = os.getcwd()
 for i in range(0,len(images)):
 
     #Store pre-processed images in indv. folders
-    blurF = cwd + "/YOUR FOLDERS HERE/%s.png"%images[i][1]
-    segmentF = cwd + "/YOUR FOLDERS HERE/%s.png"%images[i][1]
-    polarF = cwd + "//YOUR FOLDERS HERE/%s.png"%images[i][1]
+    blurF = cwd + "/processed/blurs/%s.png"%images[i][1]
+    segmentF = cwd + "/processed/segments/%s.png"%images[i][1]
+    polarF = cwd + "/processed/polars/%s.png"%images[i][1]
 
     cv2.imwrite(blurF,blurs[i][0])
     cv2.imwrite(segmentF,colors[i][0])
@@ -68,7 +68,7 @@ for i in range(0,len(images)):
 
     #Combine pre-processed image steps for display photos
 
-    filename = cwd + "/YOUR FOLDERS HERE/%s.png"%images[i][1]
+    filename = cwd + "/processed/displays/%s.png"%images[i][1]
 
     f, axarr = plt.subplots(1,4)
 

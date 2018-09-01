@@ -16,7 +16,6 @@ from __future__ import unicode_literals
 import numpy as np
 import scipy as sp
 
-
 from scipy.ndimage import map_coordinates
 from scipy.ndimage.interpolation import shift
 from scipy.optimize import curve_fit, minimize
