@@ -10,34 +10,33 @@ This repository was independently developed as a data analysis pipeline for opti
 Getting Started
 ----
 
-To get started, the first thing you will need to do is create a calibration file for your specific samples' geometry. Ideally you should take your input photos with a ruler in frame to validate your pixel-distance ratio. 
+To get started, you will first need to create a calibration file for your specific samples' geometry. Ideally you should take any input photos with a ruler in frame as a reference for the pixel-to-distance. 
 
-To get started, you will first need to install the necessary dependencies: 
+Once that's taken care of, you will then need to install the necessary dependencies: 
 
 ```
 pip3 install opencv-python numpy matplotlib pillow
 ```
 
-Then you will need download or clone this repository and cd into the parent directory 
+and then download or clone this repository
 
 ```
 git clone https://github.com/barrettfdavis/CV-Diffusion.git
 cd /CV-Diffusion
 ```
-
-Next, transfer the image files you would like to analyze into the folder "Inputs" (NB: 
+Once you've got this repo setup, cd into the parent folder and transfer the image files you would like to analyze into the folder "Inputs"
 
 ```
 cp ~/[Insert Your Photos' Directory Here]/* ~/Inputs
 ```
 
-And run the image pre-processing script. 
+Then, simply run the image pre-processing script: 
 
 ```
 python3 diffusionCV.py
 ```
 
-Processing a folder of around fifty 30kb JPEGs took about 1-2 minutes on my MBP, but the actual time will depend largely on your machine. Once this is finished, you will be ready to run the measurement script:  
+Processing a folder of around fifty 30 kb JPEGs takes about 30 seconds on my MBP, but the actual time will depend largely on your machine. Once this is finished, you will be ready to run the measurement script:  
 
 ```
 python3 measure.py
@@ -46,7 +45,7 @@ python3 measure.py
 Should everything have gone as expected, you should now see two new files in the "Outputs" folder called "gradFronts.txt" and "verboseOutput.txt". Congrats! You're data is now ready for analysis.
 
 
-Reading from left to right across the gradFronts.txt file, you will find that for each line the comma seperated values correspond to a given sample's file name, the number of valid measurements taken on the sample, the diffusivity of the sample, and the standard deviation in diffusivity measurements: 
+Reading from left to right across the gradFronts.txt file, you will find that for each line the comma seperated values correspond to a given sample's *file name*, the *number of valid measurements* taken on the sample, the *diffusivity* of the sample, and the *standard deviation* in diffusivity measurements: 
 
 | Name | Number of Measurements | Mean Diffusivity (cm^2/s) | Diffusivity (cm^2/s) (STDev) |  |
 |--------|------------------------|---------------------------|------------------------------|---|
@@ -54,7 +53,7 @@ Reading from left to right across the gradFronts.txt file, you will find that fo
 | DEF345 | 100 | 2E-05 | 5E-06 |  |
 | ... | ... | ... | ... |  |
 
-Reading from right to left across the verboseOutput.txt file, you will find every recorded diffusivity value for a given sample on each individual line. The image file corresponding to each line is not shown, however the lines are organized alphabetically by filename. 
+Reading from left to right across the verboseOutput.txt file, you should see that every value on a given line corresponds to a measured diffusivity for one sample. These lines are organized alphabetically by filenames within your Inputs folder. 
 
 
 Methods
